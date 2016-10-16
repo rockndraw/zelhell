@@ -2,6 +2,7 @@
     width: 100%;
     min-height: 100%;
     background: url(../img/select1.jpg);
+    background-size: cover;
 }
 
 .choose-korpus__caption {
@@ -42,10 +43,6 @@
     background-size: contain;
 }
 
-.choose-floor{
-    background: url(../img/floor.jpg);
-}
-
 .korp{
     fill:rgba(255,255,255,.3);
     stroke:#fff;
@@ -72,35 +69,39 @@ svg .floor:hover, svg .active-floor{
 @media (max-width: 1475px) {
     .choose-korpus {
         background: url(../img/select1.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section1{
         background: url(../img/k1.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section1-2{
         background: url(../img/k1-2.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section3{
         background: url(../img/k3.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section3-2{
         background: url(../img/k3-2.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section2{
         background: url(../img/k2.jpg) no-repeat;
+        background-size: contain;
     }
 
     .choose-section2-2{
         background: url(../img/k2-2.jpg) no-repeat;
+        background-size: contain;
     }
 
-    .choose-floor{
-        background: url(../img/floor.jpg) no-repeat;
-    }
 }
 
 .choose-korpus__marker {
@@ -582,21 +583,59 @@ background: #cc4837;
   height:100%;
   overflow: hidden;
 }
-
 .floor-plan--plan1 {
-  background-image: url(../img/plan1.png);
+    background-image: url(../img/plan1.png);
+    background-size: cover;
 }
 .floor-plan--plan2 {
     background-image: url(../img/plan2.png);
+    background-size: cover;
 }
 .floor-plan--plan3 {
     background-image: url(../img/plan3.png);
+    background-size: cover;
 }
 .floor-plan--plan4 {
     background-image: url(../img/plan4.png);
+    background-size: cover;
 }
 .floor-plan--plan5 {
     background-image: url(../img/plan5.png);
+    background-size: cover;
+}
+.choose-floor{
+    background: url(../img/floor.jpg) no-repeat;
+    background-size: cover;
+}
+
+
+@media (max-width: 1475px) {
+    .choose-floor{
+        background: url(../img/floor.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    .floor-plan--plan1 {
+      background-image: url(../img/plan1.png);
+        background-size: cover;
+    }
+    .floor-plan--plan2 {
+        background-image: url(../img/plan2.png);
+        background-size: cover;
+    }
+    .floor-plan--plan3 {
+        background-image: url(../img/plan3.png);
+        background-size: cover;
+    }
+    .floor-plan--plan4 {
+        background-image: url(../img/plan4.png);
+        background-size: cover;
+    }
+    .floor-plan--plan5 {
+        background-image: url(../img/plan5.png);
+        background-size: cover;
+    }
+
 }
 
 .plan{
