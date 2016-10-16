@@ -66,9 +66,9 @@
         <div class="floor-plan floor-plan--plan1">
           <svg xmlns="http://www.w3.org/2000/svg" class="floor-mainsvg" viewBox="0 0 1920 1080">
               <g class="number-floor">
-                <path class="floor active-floor" d="M511.4 850.8h63.9v47.6h-63.9z"/>
-                <path class="floor" d="M511.4 802.6h63.9v48.2h-63.9z"/>
-                <path class="floor" d="M511.4 754.8h63.9v47.8h-63.9z"/>
+                <path class="floor active-floor" data-floor="1" d="M511.4 850.8h63.9v47.6h-63.9z"/>
+                <path class="floor" data-floor="2" d="M511.4 802.6h63.9v48.2h-63.9z"/>
+                <path class="floor" data-floor="3" d="M511.4 754.8h63.9v47.8h-63.9z"/>
                 <path class="floor" d="M511.4 706.8h63.9v48h-63.9z"/>
                 <path class="floor" d="M511.4 658.8h63.9v48h-63.9z"/>
                 <path class="floor" d="M511.4 610.5h63.9v48.4h-63.9z"/>
@@ -117,10 +117,31 @@
         $(document).ready(function(){
             $('body').fadeIn(800);
         });
+
+        function send(info) {
+            $.ajax({
+                url: '../php/floors.php',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(response);
+                },
+                data: info
+            });
+        }
+
+
+
         $(".floor").click(function(){
           $(".floor").removeClass("active-floor");
           $(this).addClass("active-floor");
-        })
+            var  info = {
+                korpus: window.location.search.split('&')[0].substring(8),
+                section: window.location.search.split('&')[1].substring(8),
+                floor:$(this).data('floor'),
+            };
+            send(info);
+        });
         function flatInfoShow(number) {
             $("#flat-rooms").html(number);
             document.querySelector('.flat-info').style.visibility = "visible";
@@ -129,5 +150,12 @@
             document.querySelector('.flat-info').style.visibility = "hidden";
         }
     </script>
+    <style>
+        .choose-korpus.choose-floor{
+            height: 100%;
+            position: ABSOLUTE;
+            TOP: 0;
+        }
+    </style>
 </body>
 </html>
