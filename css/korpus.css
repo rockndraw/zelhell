@@ -13,35 +13,38 @@
   left: 35%;
 }
 
+.choose-flat{
+    background: url(../img/params.jpg);
+}
+
 .choose-section1{
     background: url(../img/k1.jpg);
-    background-size: contain;
 }
 
 .choose-section1-2{
     background: url(../img/k1-2.jpg);
-    background-size: contain;
 }
 
 .choose-section3{
     background: url(../img/k3.jpg);
-    background-size: contain;
 }
 
 .choose-section3-2{
     background: url(../img/k3-2.jpg);
-    background-size: contain;
 }
 
 .choose-section2{
     background: url(../img/k2.jpg);
-    background-size: contain;
 }
 
 .choose-section3-2{
     background: url(../img/k2-2.jpg);
-    background-size: contain;
 }
+
+.choose-floor{
+    background: url(../img/floor.jpg);
+}
+
 
 .korp{
     fill:rgba(255,255,255,.3);
@@ -66,40 +69,10 @@ svg .floor:hover, svg .active-floor{
     cursor: pointer;
 }
 
-@media (max-width: 1475px) {
+@media (max-width: 1800px) {
     .choose-korpus {
-        background: url(../img/select1.jpg) no-repeat;
         background-size: contain;
-    }
-
-    .choose-section1{
-        background: url(../img/k1.jpg) no-repeat;
-        background-size: contain;
-    }
-
-    .choose-section1-2{
-        background: url(../img/k1-2.jpg) no-repeat;
-        background-size: contain;
-    }
-
-    .choose-section3{
-        background: url(../img/k3.jpg) no-repeat;
-        background-size: contain;
-    }
-
-    .choose-section3-2{
-        background: url(../img/k3-2.jpg) no-repeat;
-        background-size: contain;
-    }
-
-    .choose-section2{
-        background: url(../img/k2.jpg) no-repeat;
-        background-size: contain;
-    }
-
-    .choose-section2-2{
-        background: url(../img/k2-2.jpg) no-repeat;
-        background-size: contain;
+        background-repeat: no-repeat;
     }
 
 }
@@ -580,62 +553,44 @@ background: #cc4837;
   top: 0;
   left: 0;
   width: 100%;
-  height:100%;
-  overflow: hidden;
+  min-height: 100%;
+  background-image: url(../img/plan1.png);
+  background-size: cover;
 }
 .floor-plan--plan1 {
     background-image: url(../img/plan1.png);
-    background-size: cover;
 }
 .floor-plan--plan2 {
     background-image: url(../img/plan2.png);
-    background-size: cover;
 }
 .floor-plan--plan3 {
     background-image: url(../img/plan3.png);
-    background-size: cover;
 }
 .floor-plan--plan4 {
     background-image: url(../img/plan4.png);
-    background-size: cover;
 }
 .floor-plan--plan5 {
     background-image: url(../img/plan5.png);
-    background-size: cover;
 }
-.choose-floor{
-    background: url(../img/floor.jpg) no-repeat;
-    background-size: cover;
+.flat-plan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-image: url(../img/plan1.png);
+  background-size: cover;
+}
+.flat-plan--plan3-101-l {
+    background-image: url(../img/3-101-l.png);
 }
 
 
-@media (max-width: 1475px) {
-    .choose-floor{
-        background: url(../img/floor.jpg) no-repeat;
-        background-size: cover;
+@media (max-width: 1800px) {
+    .floor-plan{
+        background-size: contain;
+        background-repeat: no-repeat;
     }
-
-    .floor-plan--plan1 {
-      background-image: url(../img/plan1.png);
-        background-size: cover;
-    }
-    .floor-plan--plan2 {
-        background-image: url(../img/plan2.png);
-        background-size: cover;
-    }
-    .floor-plan--plan3 {
-        background-image: url(../img/plan3.png);
-        background-size: cover;
-    }
-    .floor-plan--plan4 {
-        background-image: url(../img/plan4.png);
-        background-size: cover;
-    }
-    .floor-plan--plan5 {
-        background-image: url(../img/plan5.png);
-        background-size: cover;
-    }
-
 }
 
 .plan{
@@ -712,10 +667,11 @@ svg .plan--red:hover{
   color: #fff;
   font-size: 22px;
   text-transform: uppercase;
-  left: 42%;
+  left: 38%;
   top: 66%;
   text-align: center;
   visibility: hidden;
+  width: 400px;
 }
 
 .flat-info__price {
@@ -723,7 +679,55 @@ svg .plan--red:hover{
   padding-top: 10px;
 }
 
+.flat-info__fixprice {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 32px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.flat-info__fixprice:after {
+  content: 'фиксированная цена';
+  position: absolute;
+  left: 32px;
+  top: 78px;
+
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+
+.flat-info__aucprice {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 32px;
+  padding-top: 10px;
+  color: rgba(120,183,11,1);
+}
+
+.flat-info__aucprice:after {
+  content: 'аукционная цена';
+  position: absolute;
+  left: 222px;
+  top: 78px;
+
+  padding: 0 10px;
+  font-size: 12px;
+}
+
 .flat-info__status {
   font-size: 14px;
   padding-top: 10px;
+}
+
+.flat-card {
+  color: #fff;
+  font-size: 28px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 25%;
+  left: 53%;
+}
+.flat-card__item {
+  padding: 10px 0;
 }

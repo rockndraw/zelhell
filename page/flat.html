@@ -44,41 +44,23 @@
 
 
     <div class="pagewrapper" >
-        <div class="choose-korpus choose-floor">
-          <h1 class="choose-korpus__caption">Выберите этаж и квартиру</h1>
-          <div class="legend">
-            <div class="legend__item legend__item--red"></div>
-            <div class="legend__item legend__item--white"></div>
-            <div class="legend__item legend__item--green"></div>
-          </div>
-          <div id="flat-info" class="flat-info">
+        <div class="choose-korpus choose-flat">
+          <h1 class="choose-korpus__caption">Квартира №<span id="flat-number"></span></h1>
 
+          <div id="flat-card" class="flat-card">
+            <div class="flat-card__item">
+              Площадь: 101.3 м<sup>2</sup>
+            </div>
+            <div class="flat-card__item">
+              Комнат: 3
+            </div>
+            <div class="flat-card__item">
+              Стоимость: 3400000 ₽
+            </div>
           </div>
         </div>
-        <div class="floor-plan floor-plan--plan1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="floor-mainsvg" viewBox="0 0 1920 1080">
-              <g class="number-floor">
-                <path class="floor active-floor" data-floor="1" d="M511.4 850.8h63.9v47.6h-63.9z"/>
-                <path class="floor" data-floor="2" d="M511.4 802.6h63.9v48.2h-63.9z"/>
-                <path class="floor" data-floor="3" d="M511.4 754.8h63.9v47.8h-63.9z"/>
-                <path class="floor" d="M511.4 706.8h63.9v48h-63.9z"/>
-                <path class="floor" d="M511.4 658.8h63.9v48h-63.9z"/>
-                <path class="floor" d="M511.4 610.5h63.9v48.4h-63.9z"/>
-                <path class="floor" d="M511.4 562.2h63.9v48.2h-63.9z"/>
-                <path class="floor" d="M511.4 514.4h63.9v47.8h-63.9z"/>
-                <path class="floor" d="M511.4 466h63.9v48.4h-63.9z"/>
-                <path class="floor" d="M511.4 417.8h63.9V466h-63.9z"/>
-                <path class="floor" d="M511.4 370.5h63.9v47.3h-63.9z"/>
-                <path class="floor" d="M511.4 322.4h63.9v48.1h-63.9z"/>
-                <path class="floor" d="M511.4 274.6h63.9v47.8h-63.9z"/>
-                <path class="floor" d="M511.4 226.9h63.9v47.7h-63.9z"/>
-                <path class="floor" d="M511.4 178.4h63.9v48.4h-63.9z"/>
-                <path class="floor" d="M511.4 130.3h63.9v48.1h-63.9z"/>
-                <path class="floor" d="M511.4 83.6h63.9v46.7h-63.9z"/>
-              </g>
-              <g id="pathes" class='group-plan'>
-              </g>
-          </svg>
+        <div class="flat-plan flat-plan--plan3-101-l">
+
         </div>
 
 
@@ -99,61 +81,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
 
-        function loadsvg(korpus,section,floor) {
-            $('#pathes').load('../php/floors.php?korpus='+korpus+'&section='+section+'&floor='+floor, function() {
-            });
-        }
-
-        function loadfloorbg() {
-          var msg = {
-            korpus: window.location.search.split('&')[0].substring(8),
-            section: window.location.search.split('&')[1].substring(8)
-          }
-          $.ajax({
-                            type: 'POST',
-                            url: '../php/floorsbg.php',
-                            data: msg,
-                            success: function(data) {
-                              $('.floor-plan').removeClass('floor-plan--plan1');
-                              $('.floor-plan').removeClass('floor-plan--plan2');
-                              $('.floor-plan').removeClass('floor-plan--plan3');
-                              $('.floor-plan').removeClass('floor-plan--plan4');
-                              $('.floor-plan').removeClass('floor-plan--plan5');
-                              $('.floor-plan').addClass(data);
-                            }
-                        });
-        }
-
         $(document).ready(function(){
-            var korpus = window.location.search.split('&')[0].substring(8);
-            var section = window.location.search.split('&')[1].substring(8);
-            var floor = 1;
-            loadfloorbg();
-            loadsvg(korpus,section,floor);
+            var flat = window.location.search.split('?')[1].substring(5);
+            $("#flat-number").html(flat);
             $('body').fadeIn(800);
         });
 
-
-        $(".floor").click(function(){
-          $(".floor").removeClass("active-floor");
-          $(this).addClass("active-floor");
-                korpus = window.location.search.split('&')[0].substring(8);
-                section = window.location.search.split('&')[1].substring(8);
-                floor = $(this).data('floor');
-            loadsvg(korpus,section,floor);
-        });
         function flatInfoShow(flat) {
 
           $('#flat-info').load('../php/floorsinfo.php?flat='+flat, function() {
           });
             document.querySelector('.flat-info').style.visibility = "visible";
         }
+
         function flatInfoHide() {
             document.querySelector('.flat-info').style.visibility = "hidden";
         }
+
     </script>
     <style>
-        .choose-korpus.choose-floor{
+        .choose-korpus.choose-flat{
             height: 100%;
             position: ABSOLUTE;
             TOP: 0;
